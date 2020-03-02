@@ -1,9 +1,6 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import { computeCurrencyConversion } from './components/CalculatorContainer';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('computeCurrencyConversion', () => {
+  const result = computeCurrencyConversion({ currencyInputValue: 500 }, { currencyOutput: 'USD', rates: { USD: 1.1 } })
+  expect(JSON.stringify(result)).toBe(JSON.stringify({ currencyOutputValue: 550 }))
 });
